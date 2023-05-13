@@ -1,0 +1,9 @@
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\bin\Debug\atelier-2.exe.config
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\bin\Debug\atelier-2.exe
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\bin\Debug\atelier-2.pdb
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\obj\Debug\atelier-2.csproj.AssemblyReference.cache
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\obj\Debug\atelier_2.Properties.Resources.resources
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\obj\Debug\atelier-2.csproj.GenerateResource.cache
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\obj\Debug\atelier-2.csproj.CoreCompileInputs.cache
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\obj\Debug\atelier-2.exe
+C:\Users\Taoto\Documents\CODE\CNED\AP2\code\atelier-2\atelier-2\obj\Debug\atelier-2.pdb
