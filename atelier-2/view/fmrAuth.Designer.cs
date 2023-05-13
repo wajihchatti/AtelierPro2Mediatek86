@@ -1,5 +1,5 @@
 ﻿
-namespace atelier_2
+namespace atelier2
 {
     partial class Form1
     {

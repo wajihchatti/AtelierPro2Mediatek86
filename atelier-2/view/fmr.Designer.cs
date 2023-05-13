@@ -1,5 +1,5 @@
 ﻿
-namespace atelier_2.view
+namespace atelier2.view
 {
     partial class gbxPro
     {

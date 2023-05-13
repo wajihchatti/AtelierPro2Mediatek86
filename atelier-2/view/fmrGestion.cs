@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace atelier_2.view
+namespace atelier2.view
 {
     public partial class gbxPro : Form
     {
