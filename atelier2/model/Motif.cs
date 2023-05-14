@@ -9,7 +9,7 @@ namespace atelier2.model
     /// <summary>
     /// Classe métier liée à la table Motif
     /// </summary>
-    class Motif
+    public class Motif
     {
         public int Idmotif { get; }
         public string Libelle { get; }

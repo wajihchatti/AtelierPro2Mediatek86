@@ -18,7 +18,6 @@ namespace atelier2
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FmrAuth());
-            Application.Run(new FmrGestion());
         }
         
     }

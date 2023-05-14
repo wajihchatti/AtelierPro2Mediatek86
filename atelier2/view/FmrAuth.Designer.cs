@@ -37,6 +37,7 @@ namespace atelier2
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPwd = new System.Windows.Forms.TextBox();
             this.btnConnec = new System.Windows.Forms.Button();
+            this.lblconnec = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblLogin
@@ -73,18 +74,28 @@ namespace atelier2
             // 
             // btnConnec
             // 
-            this.btnConnec.Location = new System.Drawing.Point(126, 151);
+            this.btnConnec.Location = new System.Drawing.Point(171, 153);
             this.btnConnec.Name = "btnConnec";
             this.btnConnec.Size = new System.Drawing.Size(100, 23);
             this.btnConnec.TabIndex = 4;
             this.btnConnec.Text = "Connection";
             this.btnConnec.UseVisualStyleBackColor = true;
+            this.btnConnec.Click += new System.EventHandler(this.BtnConnec_Click);
+            // 
+            // lblconnec
+            // 
+            this.lblconnec.AutoSize = true;
+            this.lblconnec.Location = new System.Drawing.Point(66, 128);
+            this.lblconnec.Name = "lblconnec";
+            this.lblconnec.Size = new System.Drawing.Size(0, 13);
+            this.lblconnec.TabIndex = 5;
             // 
             // FmrAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 204);
+            this.Controls.Add(this.lblconnec);
             this.Controls.Add(this.btnConnec);
             this.Controls.Add(this.txtPwd);
             this.Controls.Add(this.txtLogin);
@@ -104,6 +115,7 @@ namespace atelier2
         private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.TextBox txtPwd;
         private System.Windows.Forms.Button btnConnec;
+        private Label lblconnec;
     }
 }
 

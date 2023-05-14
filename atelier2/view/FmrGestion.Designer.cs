@@ -92,6 +92,7 @@ namespace atelier2.view
             this.btnProModifier.TabIndex = 3;
             this.btnProModifier.Text = "modifier";
             this.btnProModifier.UseVisualStyleBackColor = true;
+            this.btnProModifier.Click += new System.EventHandler(this.btnProModifier_Click);
             // 
             // btnProSuprimer
             // 
@@ -157,6 +158,7 @@ namespace atelier2.view
             this.btnProEnregistrer.TabIndex = 10;
             this.btnProEnregistrer.Text = "enregistrer";
             this.btnProEnregistrer.UseVisualStyleBackColor = true;
+            this.btnProEnregistrer.Click += new System.EventHandler(this.btnProEnregistrer_Click);
             // 
             // label5
             // 
@@ -380,7 +382,7 @@ namespace atelier2.view
             this.cbxMotif.Size = new System.Drawing.Size(200, 21);
             this.cbxMotif.TabIndex = 2;
             // 
-            // gbxPro
+            // FmrGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -391,7 +393,7 @@ namespace atelier2.view
             this.Controls.Add(this.bntafficher);
             this.Controls.Add(this.gbxProSelect);
             this.Controls.Add(this.gbxPros);
-            this.Name = "gbxPro";
+            this.Name = "FmrGestion";
             this.Text = "Gestionnaire personnel et absence";
             this.gbxPros.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPerso)).EndInit();

@@ -47,6 +47,61 @@
             <param name="parameters">dictoinnaire contenant les parametres</param>
             <returns>liste de tableaux d'objets contenant les valeurs des colonnes</returns>
         </member>
+        <member name="T:atelier2.controller.FmrAuthController">
+            <summary>
+            Contrôleur de FmrAuth
+            </summary>
+        </member>
+        <member name="F:atelier2.controller.FmrAuthController.connectionAccess">
+            <summary>
+            objet d'accès a la verification login mot de passe
+            </summary>
+        </member>
+        <member name="F:atelier2.controller.FmrAuthController.gestion">
+            <summary>
+            vu du systeme de gestion du personnel et de leurs absences 
+            </summary>
+        </member>
+        <member name="M:atelier2.controller.FmrAuthController.#ctor">
+            <summary>
+            Récupère les acces aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.controller.FmrAuthController.GetLaConnection(System.String,System.String)">
+            <summary>
+            Valide ou non l'authentification login pwd du responsable
+            Si valide lance la fenêtre de gestion et renvoi vrai
+            Sinon valide renvoi false
+            </summary>
+            <param name="login"></param>
+            <param name="psw"></param>
+            <returns></returns>
+        </member>
+        <member name="T:atelier2.controller.FmrGestionController">
+            <summary>
+            Contôleur de FmrGestion
+            </summary>
+        </member>
+        <member name="F:atelier2.controller.FmrGestionController.personnelAccess">
+            <summary>
+            objet d'accès aux opérations possibles sur Personnel
+            </summary>
+        </member>
+        <member name="F:atelier2.controller.FmrGestionController.absenceAccess">
+            <summary>
+            objet d'accès aux opérations possibles sur Absence
+            </summary>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:atelier2.dal.AbsenceAccess">
+            <summary>
+            Classe permettant de gérer les demandes concernant les absences
+            </summary>
+        </member>
         <member name="T:atelier2.dal.Access">
             <summary>
             Singleton : classe d'accès à BddManager
@@ -78,6 +133,35 @@
             Création d'une seule instance de la classe
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:atelier2.dal.ConnectionAccess">
+            <summary>
+            Classe permettant de  gérer les demandes de verification de login et mot de passe
+            pour acceder au logiciel de gestion
+            </summary>
+        </member>
+        <member name="F:atelier2.dal.ConnectionAccess.access">
+            <summary>
+            Instance unique de l'accès aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.dal.ConnectionAccess.#ctor">
+            <summary>
+            Constructeur pour créer l'accès aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.dal.ConnectionAccess.GetLaConnection(System.String,System.String)">
+            <summary>
+            retourne vrai si la combinaison mdp pwd existe dans la base de données
+            </summary>
+            <param name="login"></param>
+            <param name="pwd"></param>
+            <returns>vrai ou faux</returns>
+        </member>
+        <member name="T:atelier2.dal.PersonnelAccess">
+            <summary>
+            Classe permettant de gérer les demandes concernant les absences
+            </summary>
         </member>
         <member name="T:atelier2.model.Absence">
             <summary>
@@ -154,6 +238,19 @@
             <summary>
             construction des composants graphiques 
             </summary>
+        </member>
+        <member name="M:atelier2.FmrAuth.Init">
+            <summary>
+            Initialisations :
+            Création du controleur
+            </summary>
+        </member>
+        <member name="M:atelier2.FmrAuth.BtnConnec_Click(System.Object,System.EventArgs)">
+            <summary>
+            Demande de connection
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="F:atelier2.FmrAuth.components">
             <summary>

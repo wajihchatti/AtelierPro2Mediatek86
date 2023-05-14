@@ -9,9 +9,8 @@ namespace atelier2.model
     /// <summary>
     /// Classe métier liée à la table Service
     /// </summary>
-    class Service
+    public class Service
     {
-
         public int Idservice { get; }
         public string Nom { get; }
 

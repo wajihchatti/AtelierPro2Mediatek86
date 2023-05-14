@@ -9,7 +9,7 @@ namespace atelier2.model
     /// <summary>
     /// Classe métier liée à la table Absence
     /// </summary>
-    class Absence
+    public class Absence
     {
         /// <summary>
         /// Valorise les propriétés

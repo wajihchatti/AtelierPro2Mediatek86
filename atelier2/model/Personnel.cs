@@ -10,7 +10,7 @@ namespace atelier2.model
     /// <summary>
     ///  Classe métier liée à la table Personnel
     /// </summary>
-    class Personnel
+    public class Personnel
     {
         /// <summary>
         /// Valorise les propriétés
