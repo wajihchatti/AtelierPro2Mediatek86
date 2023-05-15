@@ -163,6 +163,16 @@
             Classe permettant de gérer les demandes concernant les absences
             </summary>
         </member>
+        <member name="F:atelier2.dal.PersonnelAccess.access">
+            <summary>
+            Instance unique de l'accès aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.dal.PersonnelAccess.#ctor">
+            <summary>
+            Constructeur pour créer l'accès aux données
+            </summary>
+        </member>
         <member name="T:atelier2.model.Absence">
             <summary>
             Classe métier liée à la table Absence
@@ -283,6 +293,14 @@
             <summary>
             construction des composants graphiques et appel des autres initialisations
             </summary>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            Arrête le programme
+            quand on ferme la fenêtre 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
         </member>
         <member name="F:atelier2.view.FmrGestion.components">
             <summary>

@@ -32,8 +32,7 @@ namespace atelier2.view
             this.gbxPros = new System.Windows.Forms.GroupBox();
             this.btnProModifier = new System.Windows.Forms.Button();
             this.btnProSuprimer = new System.Windows.Forms.Button();
-            this.btnProAjouter = new System.Windows.Forms.Button();
-            this.dataGridPerso = new System.Windows.Forms.DataGridView();
+            this.dgvPerso = new System.Windows.Forms.DataGridView();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.gbxProSelect = new System.Windows.Forms.GroupBox();
             this.btnProAnnuler = new System.Windows.Forms.Button();
@@ -43,17 +42,16 @@ namespace atelier2.view
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cbxService = new System.Windows.Forms.ComboBox();
+            this.txtProTel = new System.Windows.Forms.TextBox();
+            this.txtProMail = new System.Windows.Forms.TextBox();
+            this.txtProPrenom = new System.Windows.Forms.TextBox();
+            this.txtProNom = new System.Windows.Forms.TextBox();
             this.bntafficher = new System.Windows.Forms.Button();
             this.gbxAbsences = new System.Windows.Forms.GroupBox();
             this.btnAbsSuprimer = new System.Windows.Forms.Button();
             this.btnAbsModifier = new System.Windows.Forms.Button();
-            this.btnAbsAjouter = new System.Windows.Forms.Button();
-            this.dataGridAbs = new System.Windows.Forms.DataGridView();
+            this.dgvAbs = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAbsAnnuler = new System.Windows.Forms.Button();
             this.btnAbsEnregistrer = new System.Windows.Forms.Button();
@@ -64,10 +62,10 @@ namespace atelier2.view
             this.label6 = new System.Windows.Forms.Label();
             this.cbxMotif = new System.Windows.Forms.ComboBox();
             this.gbxPros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPerso)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPerso)).BeginInit();
             this.gbxProSelect.SuspendLayout();
             this.gbxAbsences.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAbs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbs)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,8 +73,7 @@ namespace atelier2.view
             // 
             this.gbxPros.Controls.Add(this.btnProModifier);
             this.gbxPros.Controls.Add(this.btnProSuprimer);
-            this.gbxPros.Controls.Add(this.btnProAjouter);
-            this.gbxPros.Controls.Add(this.dataGridPerso);
+            this.gbxPros.Controls.Add(this.dgvPerso);
             this.gbxPros.Location = new System.Drawing.Point(29, 21);
             this.gbxPros.Name = "gbxPros";
             this.gbxPros.Size = new System.Drawing.Size(536, 357);
@@ -86,39 +83,37 @@ namespace atelier2.view
             // 
             // btnProModifier
             // 
-            this.btnProModifier.Location = new System.Drawing.Point(225, 307);
+            this.btnProModifier.Location = new System.Drawing.Point(21, 307);
             this.btnProModifier.Name = "btnProModifier";
             this.btnProModifier.Size = new System.Drawing.Size(75, 23);
             this.btnProModifier.TabIndex = 3;
             this.btnProModifier.Text = "modifier";
             this.btnProModifier.UseVisualStyleBackColor = true;
-            this.btnProModifier.Click += new System.EventHandler(this.btnProModifier_Click);
+            this.btnProModifier.Click += new System.EventHandler(this.BtnProModifier_Click_1);
             // 
             // btnProSuprimer
             // 
-            this.btnProSuprimer.Location = new System.Drawing.Point(455, 307);
+            this.btnProSuprimer.Location = new System.Drawing.Point(128, 307);
             this.btnProSuprimer.Name = "btnProSuprimer";
             this.btnProSuprimer.Size = new System.Drawing.Size(75, 23);
             this.btnProSuprimer.TabIndex = 2;
             this.btnProSuprimer.Text = "suprimer";
             this.btnProSuprimer.UseVisualStyleBackColor = true;
+            this.btnProSuprimer.Click += new System.EventHandler(this.BtnProSuprimer_Click);
             // 
-            // btnProAjouter
+            // dgvPerso
             // 
-            this.btnProAjouter.Location = new System.Drawing.Point(6, 307);
-            this.btnProAjouter.Name = "btnProAjouter";
-            this.btnProAjouter.Size = new System.Drawing.Size(75, 23);
-            this.btnProAjouter.TabIndex = 1;
-            this.btnProAjouter.Text = "ajouter";
-            this.btnProAjouter.UseVisualStyleBackColor = true;
-            // 
-            // dataGridPerso
-            // 
-            this.dataGridPerso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPerso.Location = new System.Drawing.Point(6, 19);
-            this.dataGridPerso.Name = "dataGridPerso";
-            this.dataGridPerso.Size = new System.Drawing.Size(524, 257);
-            this.dataGridPerso.TabIndex = 0;
+            this.dgvPerso.AllowUserToAddRows = false;
+            this.dgvPerso.AllowUserToDeleteRows = false;
+            this.dgvPerso.AllowUserToResizeRows = false;
+            this.dgvPerso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPerso.Location = new System.Drawing.Point(6, 19);
+            this.dgvPerso.MultiSelect = false;
+            this.dgvPerso.Name = "dgvPerso";
+            this.dgvPerso.RowHeadersVisible = false;
+            this.dgvPerso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPerso.Size = new System.Drawing.Size(524, 257);
+            this.dgvPerso.TabIndex = 0;
             // 
             // gbxProSelect
             // 
@@ -129,17 +124,17 @@ namespace atelier2.view
             this.gbxProSelect.Controls.Add(this.label3);
             this.gbxProSelect.Controls.Add(this.label2);
             this.gbxProSelect.Controls.Add(this.label1);
-            this.gbxProSelect.Controls.Add(this.comboBox1);
-            this.gbxProSelect.Controls.Add(this.textBox4);
-            this.gbxProSelect.Controls.Add(this.textBox3);
-            this.gbxProSelect.Controls.Add(this.textBox2);
-            this.gbxProSelect.Controls.Add(this.textBox1);
+            this.gbxProSelect.Controls.Add(this.cbxService);
+            this.gbxProSelect.Controls.Add(this.txtProTel);
+            this.gbxProSelect.Controls.Add(this.txtProMail);
+            this.gbxProSelect.Controls.Add(this.txtProPrenom);
+            this.gbxProSelect.Controls.Add(this.txtProNom);
             this.gbxProSelect.Location = new System.Drawing.Point(29, 419);
             this.gbxProSelect.Name = "gbxProSelect";
             this.gbxProSelect.Size = new System.Drawing.Size(601, 219);
             this.gbxProSelect.TabIndex = 1;
             this.gbxProSelect.TabStop = false;
-            this.gbxProSelect.Text = "personnel selectionné";
+            this.gbxProSelect.Text = "ajouter un personnel";
             // 
             // btnProAnnuler
             // 
@@ -149,6 +144,7 @@ namespace atelier2.view
             this.btnProAnnuler.TabIndex = 11;
             this.btnProAnnuler.Text = "annuler";
             this.btnProAnnuler.UseVisualStyleBackColor = true;
+            this.btnProAnnuler.Click += new System.EventHandler(this.BtnProAnnuler_Click);
             // 
             // btnProEnregistrer
             // 
@@ -158,7 +154,7 @@ namespace atelier2.view
             this.btnProEnregistrer.TabIndex = 10;
             this.btnProEnregistrer.Text = "enregistrer";
             this.btnProEnregistrer.UseVisualStyleBackColor = true;
-            this.btnProEnregistrer.Click += new System.EventHandler(this.btnProEnregistrer_Click);
+            this.btnProEnregistrer.Click += new System.EventHandler(this.BtnProEnregistrer_Click);
             // 
             // label5
             // 
@@ -205,41 +201,45 @@ namespace atelier2.view
             this.label1.TabIndex = 5;
             this.label1.Text = "nom";
             // 
-            // comboBox1
+            // cbxService
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(397, 147);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cbxService.FormattingEnabled = true;
+            this.cbxService.Items.AddRange(new object[] {
+            "administatif",
+            "médiation culturelle",
+            "prêt"});
+            this.cbxService.Location = new System.Drawing.Point(397, 147);
+            this.cbxService.Name = "cbxService";
+            this.cbxService.Size = new System.Drawing.Size(156, 21);
+            this.cbxService.TabIndex = 4;
             // 
-            // textBox4
+            // txtProTel
             // 
-            this.textBox4.Location = new System.Drawing.Point(397, 95);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(156, 20);
-            this.textBox4.TabIndex = 3;
+            this.txtProTel.Location = new System.Drawing.Point(397, 95);
+            this.txtProTel.Name = "txtProTel";
+            this.txtProTel.Size = new System.Drawing.Size(156, 20);
+            this.txtProTel.TabIndex = 3;
             // 
-            // textBox3
+            // txtProMail
             // 
-            this.textBox3.Location = new System.Drawing.Point(397, 53);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(156, 20);
-            this.textBox3.TabIndex = 2;
+            this.txtProMail.Location = new System.Drawing.Point(397, 53);
+            this.txtProMail.Name = "txtProMail";
+            this.txtProMail.Size = new System.Drawing.Size(156, 20);
+            this.txtProMail.TabIndex = 2;
             // 
-            // textBox2
+            // txtProPrenom
             // 
-            this.textBox2.Location = new System.Drawing.Point(98, 102);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtProPrenom.Location = new System.Drawing.Point(98, 102);
+            this.txtProPrenom.Name = "txtProPrenom";
+            this.txtProPrenom.Size = new System.Drawing.Size(170, 20);
+            this.txtProPrenom.TabIndex = 1;
             // 
-            // textBox1
+            // txtProNom
             // 
-            this.textBox1.Location = new System.Drawing.Point(98, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtProNom.Location = new System.Drawing.Point(98, 53);
+            this.txtProNom.Name = "txtProNom";
+            this.txtProNom.Size = new System.Drawing.Size(170, 20);
+            this.txtProNom.TabIndex = 0;
             // 
             // bntafficher
             // 
@@ -254,8 +254,7 @@ namespace atelier2.view
             // 
             this.gbxAbsences.Controls.Add(this.btnAbsSuprimer);
             this.gbxAbsences.Controls.Add(this.btnAbsModifier);
-            this.gbxAbsences.Controls.Add(this.btnAbsAjouter);
-            this.gbxAbsences.Controls.Add(this.dataGridAbs);
+            this.gbxAbsences.Controls.Add(this.dgvAbs);
             this.gbxAbsences.Location = new System.Drawing.Point(714, 21);
             this.gbxAbsences.Name = "gbxAbsences";
             this.gbxAbsences.Size = new System.Drawing.Size(412, 357);
@@ -265,7 +264,7 @@ namespace atelier2.view
             // 
             // btnAbsSuprimer
             // 
-            this.btnAbsSuprimer.Location = new System.Drawing.Point(331, 307);
+            this.btnAbsSuprimer.Location = new System.Drawing.Point(282, 307);
             this.btnAbsSuprimer.Name = "btnAbsSuprimer";
             this.btnAbsSuprimer.Size = new System.Drawing.Size(75, 23);
             this.btnAbsSuprimer.TabIndex = 3;
@@ -274,29 +273,20 @@ namespace atelier2.view
             // 
             // btnAbsModifier
             // 
-            this.btnAbsModifier.Location = new System.Drawing.Point(168, 307);
+            this.btnAbsModifier.Location = new System.Drawing.Point(44, 307);
             this.btnAbsModifier.Name = "btnAbsModifier";
             this.btnAbsModifier.Size = new System.Drawing.Size(75, 23);
             this.btnAbsModifier.TabIndex = 2;
             this.btnAbsModifier.Text = "modifier";
             this.btnAbsModifier.UseVisualStyleBackColor = true;
             // 
-            // btnAbsAjouter
+            // dgvAbs
             // 
-            this.btnAbsAjouter.Location = new System.Drawing.Point(6, 307);
-            this.btnAbsAjouter.Name = "btnAbsAjouter";
-            this.btnAbsAjouter.Size = new System.Drawing.Size(75, 23);
-            this.btnAbsAjouter.TabIndex = 1;
-            this.btnAbsAjouter.Text = "ajouter";
-            this.btnAbsAjouter.UseVisualStyleBackColor = true;
-            // 
-            // dataGridAbs
-            // 
-            this.dataGridAbs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridAbs.Location = new System.Drawing.Point(6, 19);
-            this.dataGridAbs.Name = "dataGridAbs";
-            this.dataGridAbs.Size = new System.Drawing.Size(400, 248);
-            this.dataGridAbs.TabIndex = 0;
+            this.dgvAbs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAbs.Location = new System.Drawing.Point(6, 19);
+            this.dgvAbs.Name = "dgvAbs";
+            this.dgvAbs.Size = new System.Drawing.Size(400, 248);
+            this.dgvAbs.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -396,11 +386,11 @@ namespace atelier2.view
             this.Name = "FmrGestion";
             this.Text = "Gestionnaire personnel et absence";
             this.gbxPros.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPerso)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPerso)).EndInit();
             this.gbxProSelect.ResumeLayout(false);
             this.gbxProSelect.PerformLayout();
             this.gbxAbsences.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridAbs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAbs)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -413,25 +403,23 @@ namespace atelier2.view
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button btnProModifier;
         private System.Windows.Forms.Button btnProSuprimer;
-        private System.Windows.Forms.Button btnProAjouter;
-        private System.Windows.Forms.DataGridView dataGridPerso;
+        private System.Windows.Forms.DataGridView dgvPerso;
         private System.Windows.Forms.GroupBox gbxProSelect;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbxService;
+        private System.Windows.Forms.TextBox txtProTel;
+        private System.Windows.Forms.TextBox txtProMail;
+        private System.Windows.Forms.TextBox txtProPrenom;
+        private System.Windows.Forms.TextBox txtProNom;
         private System.Windows.Forms.Button bntafficher;
         private System.Windows.Forms.GroupBox gbxAbsences;
         private System.Windows.Forms.Button btnAbsSuprimer;
         private System.Windows.Forms.Button btnAbsModifier;
-        private System.Windows.Forms.Button btnAbsAjouter;
-        private System.Windows.Forms.DataGridView dataGridAbs;
+        private System.Windows.Forms.DataGridView dgvAbs;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;

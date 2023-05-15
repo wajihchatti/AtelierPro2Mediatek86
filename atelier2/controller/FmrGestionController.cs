@@ -1,5 +1,6 @@
 ﻿using atelier2.dal;
 using atelier2.view;
+using atelier2.model;
 using System;
 using System.Collections.Generic;
 
@@ -26,6 +27,23 @@ namespace atelier2.controller
         {
             personnelAccess = new PersonnelAccess();
             absenceAccess = new AbsenceAccess(); 
+        }
+
+        public List<Personnel> GetLesPersonnels()
+        {
+            return personnelAccess.GetLesPersonnels();
+        }
+        public void AddPersonnel(Personnel personnel)
+        {
+            personnelAccess.AddPersonnel(personnel);
+        }
+        public void UpdatePersonnel(Personnel personnel)
+        {
+            personnelAccess.UpdatePersonnel(personnel);
+        }
+        public void DelPersonnel(Personnel personnel)
+        {
+            personnelAccess.DelPersonnel(personnel);
         }
     }
 }

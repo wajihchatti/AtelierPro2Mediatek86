@@ -37,10 +37,8 @@ namespace atelier2.dal
             try
             {
                 List<Object[]> records = access.Manager.ReqSelect(req, parameters);
-                Console.WriteLine(records.Count);
                 if (records.Count == 1)
                 {
-                    Console.WriteLine("coucou count");
                     return true;
                 }
             }
