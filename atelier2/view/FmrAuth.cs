@@ -1,7 +1,5 @@
 ﻿using atelier2.controller;
-using atelier2.view;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace atelier2

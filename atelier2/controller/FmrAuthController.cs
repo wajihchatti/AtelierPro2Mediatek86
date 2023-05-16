@@ -37,10 +37,8 @@ namespace atelier2.controller
         /// <returns></returns>
         public bool GetLaConnection(string login, string psw)
         {
-            Console.WriteLine("teste connection");
             if (connectionAccess.GetLaConnection(login, psw)) 
             {
-                Console.WriteLine("coucounection truuuuueeee");
                 gestion = new FmrGestion();
                 gestion.Show();
 

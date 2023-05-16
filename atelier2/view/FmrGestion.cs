@@ -93,7 +93,6 @@ namespace atelier2.view
             dgvAbs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             gbxAbsences.Text = "absence de " + personnel.Nom + " " + personnel.Prenom;
             gbxAbs.Enabled = true;
-
         }
 
         /// <summary>
@@ -196,7 +195,6 @@ namespace atelier2.view
                 dateTimePicker1.Value = absence.Datedebut;
                 dateTimePicker2.Value = absence.Datefin;
                 cbxMotif.SelectedIndex = absence.Motif.Idmotif - 1;
-
             }
             else
             {
@@ -309,8 +307,7 @@ namespace atelier2.view
                     absence.Datefin = dateTimePicker2.Value;
                     absence.Motif = motif;
                     if (VerifAbs(absence))
-                        controller.UpdateAbsence(absence);
-                        
+                        controller.UpdateAbsence(absence);   
                 }
                 else
                 {
@@ -369,7 +366,6 @@ namespace atelier2.view
                 Personnel personnelSelect = (Personnel)bdgPersonnel.List[bdgPersonnel.Position];
                 this.personnelSelect = personnelSelect;
                 RemplirListeAbsence(personnelSelect);
-
             }
             else
             {

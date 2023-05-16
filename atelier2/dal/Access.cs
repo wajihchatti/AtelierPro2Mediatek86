@@ -49,6 +49,5 @@ namespace atelier2.dal
             }
             return instance;
         }
-
     }
 }

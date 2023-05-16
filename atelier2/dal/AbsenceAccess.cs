@@ -43,8 +43,6 @@ namespace atelier2.dal
                     List<Object[]> records = access.Manager.ReqSelect(req, parameters);
                     if (records != null)
                     {
-                        Console.WriteLine(records.Count);
-                     
                         foreach (Object[] record in records)
                         {
                             Motif motif = new Motif((int)record[3], (string)record[4]);

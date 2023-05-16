@@ -62,7 +62,7 @@ namespace atelier2.controller
         /// <summary>
         /// Récupère et retourne les différents motifs
         /// </summary>
-        /// <returns>Liste des motis</returns>
+        /// <returns>Liste des motifs</returns>
         public List<Motif> GetLesMotifs()
         {
             return initAccess.GetLesMotifs();

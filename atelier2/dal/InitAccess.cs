@@ -1,13 +1,13 @@
 ﻿using System;
 using atelier2.model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace atelier2.dal
 {
-    class InitAccess
+    /// <summary>
+    /// Classe permettant d'initialiser les combobox de l'affichage
+    /// </summary>
+    public class InitAccess
     {
         /// <summary>
         /// Instance unique de l'accès aux données

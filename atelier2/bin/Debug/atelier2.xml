@@ -125,7 +125,7 @@
             <summary>
             Récupère et retourne les différents motifs
             </summary>
-            <returns>Liste des motis</returns>
+            <returns>Liste des motifs</returns>
         </member>
         <member name="M:atelier2.controller.FmrGestionController.AddPersonnel(atelier2.model.Personnel)">
             <summary>
@@ -270,6 +270,11 @@
             <param name="login"></param>
             <param name="pwd"></param>
             <returns>vrai ou faux</returns>
+        </member>
+        <member name="T:atelier2.dal.InitAccess">
+            <summary>
+            Classe permettant d'initialiser les combobox de l'affichage
+            </summary>
         </member>
         <member name="F:atelier2.dal.InitAccess.access">
             <summary>
