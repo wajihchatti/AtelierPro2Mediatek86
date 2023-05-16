@@ -78,6 +78,7 @@ namespace atelier2.view
             dgvPerso.DataSource = bdgPersonnel;
             dgvPerso.Columns["idpersonnel"].Visible = false;
             dgvPerso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvPerso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         /// <summary>
@@ -90,7 +91,10 @@ namespace atelier2.view
             bdgAbsence.DataSource = LesAbsences;
             dgvAbs.DataSource = bdgAbsence;
             dgvAbs.Columns["idpersonnel"].Visible = false;
+            dgvAbs.Columns["datedebut"].DefaultCellStyle.Format = "d/M/yyyy";
+            dgvAbs.Columns["datefin"].DefaultCellStyle.Format = "d/M/yyyy";
             dgvAbs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvAbs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gbxAbsences.Text = "absence de " + personnel.Nom + " " + personnel.Prenom;
             gbxAbs.Enabled = true;
         }

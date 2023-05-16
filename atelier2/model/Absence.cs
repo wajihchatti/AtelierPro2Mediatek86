@@ -20,8 +20,8 @@ namespace atelier2.model
             this.Datedebut = datedebut;
             this.Datefin = datefin;
             this.Motif = motif;
-
         }
+
         public int Idpersonnel { get; }
         public DateTime Datedebut { get; set; }
         public DateTime Datefin { get; set; }

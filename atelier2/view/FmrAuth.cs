@@ -26,8 +26,8 @@ namespace atelier2
         /// </summary>
         private void Init()
         {
-            txtLogin.Text = "patrick";
-            txtPwd.Text = "pwdsio";
+            txtLogin.Text = "";
+            txtPwd.Text = "";
             controller = new FmrAuthController();
         }
 
@@ -41,8 +41,8 @@ namespace atelier2
             if (controller.GetLaConnection(txtLogin.Text, txtPwd.Text))
                 this.Visible = false;
             lblconnec.Text = "Mauvais mot de passe ou login utilisateur";
-            txtLogin.Text = "patrick";
-            txtPwd.Text = "pwdsio";
+            txtLogin.Text = "";
+            txtPwd.Text = "";
         }
     }
 }
