@@ -102,6 +102,16 @@
             Classe permettant de gérer les demandes concernant les absences
             </summary>
         </member>
+        <member name="F:atelier2.dal.AbsenceAccess.access">
+            <summary>
+            Instance unique de l'accès aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.dal.AbsenceAccess.#ctor">
+            <summary>
+            Constructeur pour créer l'accès aux données
+            </summary>
+        </member>
         <member name="T:atelier2.dal.Access">
             <summary>
             Singleton : classe d'accès à BddManager

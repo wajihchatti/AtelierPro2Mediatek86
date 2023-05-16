@@ -26,24 +26,49 @@ namespace atelier2.controller
         public FmrGestionController()
         {
             personnelAccess = new PersonnelAccess();
-            absenceAccess = new AbsenceAccess(); 
+            absenceAccess = new AbsenceAccess();
         }
 
         public List<Personnel> GetLesPersonnels()
         {
             return personnelAccess.GetLesPersonnels();
         }
+
+        public List<Absence> GetLesAbsences(Personnel personnel)
+        {
+            return absenceAccess.GetLesAbsences(personnel);
+        }
+
         public void AddPersonnel(Personnel personnel)
         {
             personnelAccess.AddPersonnel(personnel);
         }
+
+        public void AddAbsence(Absence absence)
+        {
+            absenceAccess.AddAbsence(absence);
+        }
+
         public void UpdatePersonnel(Personnel personnel)
         {
             personnelAccess.UpdatePersonnel(personnel);
         }
+
+        public void UpdateAbsence(Absence absence)
+        {
+            absenceAccess.UpdateAbsence(absence);
+        }
+
         public void DelPersonnel(Personnel personnel)
         {
             personnelAccess.DelPersonnel(personnel);
         }
+
+        public void DelAbsence(Absence absence)
+        {
+            absenceAccess.DelAbsence(absence);
+        }
+
+
     }
 }

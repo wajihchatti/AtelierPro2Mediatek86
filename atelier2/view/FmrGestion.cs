@@ -13,8 +13,14 @@ namespace atelier2.view
     public partial class FmrGestion : Form
     {
         private Boolean enCoursDeModifPersonnel = false;
-        
+
+        private Boolean enCoursDeModifAbsence = false;
+
+        private Personnel personnelSelect;
+
         private BindingSource bdgPersonnel = new BindingSource();
+
+        private BindingSource bdgAbsence = new BindingSource();
 
         private FmrGestionController controller;
 
@@ -26,16 +32,15 @@ namespace atelier2.view
             InitializeComponent();
             this.FormClosing += MainForm_FormClosing;
             Init();
-            Console.WriteLine("on est a la form GEstion taDa!");
         }
 
         private void Init()
         {
             controller = new FmrGestionController();
-            //List<string> LesServices = new List<string>() { "administatif", "médiation culturelle", "prêt" };
-            //cbxService.Items.AddRange(LesServices.ToArray());
             RemplirListePersonnel();
+            gbxAbs.Enabled = false;
             EnCourseDeModifPersonnel(false);
+            EnCourseDeModifAbsence(false);
         }
 
         private void RemplirListePersonnel()
@@ -45,6 +50,18 @@ namespace atelier2.view
             dgvPerso.DataSource = bdgPersonnel;
             dgvPerso.Columns["idpersonnel"].Visible = false;
             dgvPerso.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        }
+
+        private void RemplirListeAbsence(Personnel personnel)
+        {
+            List<Absence> LesAbsences = controller.GetLesAbsences(personnel);
+            bdgAbsence.DataSource = LesAbsences;
+            dgvAbs.DataSource = bdgAbsence;
+            dgvAbs.Columns["idpersonnel"].Visible = false;
+            dgvAbs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            gbxAbsences.Text = "Absence(s) de " + personnel.Nom + " " + personnel.Prenom;
+            gbxAbs.Enabled = true;
+
         }
 
         private void EnCourseDeModifPersonnel(Boolean modif)
@@ -62,6 +79,22 @@ namespace atelier2.view
                 txtProPrenom.Text = "";
                 txtProMail.Text = "";
                 txtProTel.Text = "";
+            }
+        }
+
+        private void EnCourseDeModifAbsence(Boolean modif)
+        {
+            enCoursDeModifAbsence = modif;
+            gbxAbsences.Enabled = !modif;
+            if (modif)
+            {
+                gbxAbs.Text = "modifier une absence";
+            }
+            else
+            {
+                gbxAbs.Text = "ajouter une absence";
+                dateTimePicker1.Value = DateTime.Now;
+                dateTimePicker2.Value = DateTime.Now.AddDays(1);
             }
         }
         /// <summary>
@@ -85,8 +118,22 @@ namespace atelier2.view
                 txtProPrenom.Text = personnel.Prenom;
                 txtProTel.Text = personnel.Tel;
                 txtProMail.Text = personnel.Mail;
-                Console.WriteLine("modifier");
                 cbxService.SelectedIndex = personnel.Service.Idservice - 1;
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée. ", "Information");
+            }
+        }
+        private void BtnAbsModifier_Click(object sender, EventArgs e)
+        {
+            if (dgvAbs.SelectedRows.Count > 0 )
+            {
+                EnCourseDeModifAbsence(true);
+                Absence absence = (Absence)bdgAbsence.List[bdgAbsence.Position];
+                dateTimePicker1.Value = absence.Datedebut;
+                dateTimePicker2.Value = absence.Datefin;
+                cbxMotif.SelectedIndex = absence.Motif.Idmotif - 1;
             }
             else
             {
@@ -102,22 +149,46 @@ namespace atelier2.view
                 if (MessageBox.Show("Voulez-vous vraiment supprimer " + personnel.Nom + " " + personnel.Prenom + " ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     controller.DelPersonnel(personnel);
-                    Console.WriteLine("suprimer");
                     RemplirListePersonnel();
+                    if (dgvAbs.RowCount > 0)
+                    {
+                        Personnel personnelSelect = (Personnel)bdgPersonnel.List[bdgPersonnel.Position];
+                        this.personnelSelect = personnelSelect;
+                        RemplirListeAbsence(personnelSelect);
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Une ligne doit être sélectionnée.", "Information");
             }
-
-
         }
+
+        private void BtnAbsSuprimer_Click(object sender, EventArgs e)
+        {
+            if (dgvAbs.SelectedRows.Count > 0)
+            {
+                Absence absence = (Absence)bdgAbsence.List[bdgAbsence.Position];
+                if (MessageBox.Show("Voulez-vous vraiment supprimer l'absence de " + gbxAbsences.Text + " du "  + absence.Datedebut.ToString("d/M/yyyy H:mm").Replace(':', 'h') 
+                    + " au " + absence.Datefin.ToString("d/M/yyyy H:mm").Replace(':', 'h') + " ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    controller.DelAbsence(absence);
+                    Console.WriteLine("suprimer");
+                    RemplirListeAbsence(personnelSelect);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée.", "Information");
+            }
+        }
+
+
+
         private void BtnProEnregistrer_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("doubitchout kloug! ");
             if (!txtProNom.Text.Equals("") && !txtProPrenom.Text.Equals("") 
-                && !txtProMail.Text.Equals("") && !txtProTel.Text.Equals("") && !cbxService.SelectedItem.Equals(""))
+                && !txtProMail.Text.Equals("") && !txtProTel.Text.Equals("") && cbxService.SelectedIndex > - 1 && cbxService.SelectedIndex < 3)
             {
                 Service service = new Service(cbxService.SelectedIndex + 1, cbxService.SelectedItem.ToString());
                 if (enCoursDeModifPersonnel)
@@ -134,7 +205,6 @@ namespace atelier2.view
                 {
                     Personnel personnel = new Personnel(0, txtProNom.Text, txtProPrenom.Text, txtProTel.Text, txtProMail.Text, service);
                     controller.AddPersonnel(personnel);
-                    Console.WriteLine("ajout ? ");
                 }
                 RemplirListePersonnel();
                 EnCourseDeModifPersonnel(false);
@@ -144,6 +214,34 @@ namespace atelier2.view
                 MessageBox.Show("Tous les champs doivent être remplis.", "Information");
             }
         }
+        private void BtnAbsEnregistrer_Click(object sender, EventArgs e)
+        {
+            if ( dateTimePicker1.Value <= dateTimePicker2.Value && cbxMotif.SelectedIndex > -1 && cbxMotif.SelectedIndex < 4)
+            {
+                Motif motif = new Motif(cbxMotif.SelectedIndex + 1, cbxMotif.SelectedItem.ToString());
+                if(enCoursDeModifAbsence)
+                {
+                    Absence absence = (Absence)bdgAbsence.List[bdgAbsence.Position];
+                    absence.Datedebut = dateTimePicker1.Value;
+                    absence.Datefin = dateTimePicker2.Value;
+                    absence.Motif = motif;
+                    controller.UpdateAbsence(absence);
+                }
+                else
+                {
+                    Absence absence = new Absence(personnelSelect.Idpersonnel, dateTimePicker1.Value, dateTimePicker2.Value, motif);
+                    controller.AddAbsence(absence);
+                }
+                RemplirListeAbsence(personnelSelect);
+                EnCourseDeModifAbsence(false);
+            }
+            else
+            {
+                MessageBox.Show("Les champs doivent être correctement remplis.", "Information");
+            }
+
+        }
+
 
         private void BtnProAnnuler_Click(object sender, EventArgs e)
         {
@@ -153,5 +251,35 @@ namespace atelier2.view
             }
 
         }
+
+        private void BtnAbsAnnuler_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                EnCourseDeModifAbsence(false);
+            }
+        }
+
+        private void Bntafficher_Click(object sender, EventArgs e)
+        {
+            if (dgvPerso.SelectedRows.Count > 0)
+            {
+                Personnel personnelSelect = (Personnel)bdgPersonnel.List[bdgPersonnel.Position];
+                this.personnelSelect = personnelSelect;
+                RemplirListeAbsence(personnelSelect);
+
+            }
+            else
+            {
+                MessageBox.Show("Une ligne doit être sélectionnée. ", "Information");
+            }
+
+        }
+
+
+
+        
+
+       
     }
 }

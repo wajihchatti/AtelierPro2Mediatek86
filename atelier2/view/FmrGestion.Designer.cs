@@ -52,7 +52,7 @@ namespace atelier2.view
             this.btnAbsSuprimer = new System.Windows.Forms.Button();
             this.btnAbsModifier = new System.Windows.Forms.Button();
             this.dgvAbs = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxAbs = new System.Windows.Forms.GroupBox();
             this.btnAbsAnnuler = new System.Windows.Forms.Button();
             this.btnAbsEnregistrer = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -66,7 +66,7 @@ namespace atelier2.view
             this.gbxProSelect.SuspendLayout();
             this.gbxAbsences.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbs)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbxAbs.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxPros
@@ -93,7 +93,7 @@ namespace atelier2.view
             // 
             // btnProSuprimer
             // 
-            this.btnProSuprimer.Location = new System.Drawing.Point(128, 307);
+            this.btnProSuprimer.Location = new System.Drawing.Point(193, 307);
             this.btnProSuprimer.Name = "btnProSuprimer";
             this.btnProSuprimer.Size = new System.Drawing.Size(75, 23);
             this.btnProSuprimer.TabIndex = 2;
@@ -249,6 +249,7 @@ namespace atelier2.view
             this.bntafficher.TabIndex = 3;
             this.bntafficher.Text = "afficher absence(s)";
             this.bntafficher.UseVisualStyleBackColor = true;
+            this.bntafficher.Click += new System.EventHandler(this.Bntafficher_Click);
             // 
             // gbxAbsences
             // 
@@ -270,6 +271,7 @@ namespace atelier2.view
             this.btnAbsSuprimer.TabIndex = 3;
             this.btnAbsSuprimer.Text = "suprimer";
             this.btnAbsSuprimer.UseVisualStyleBackColor = true;
+            this.btnAbsSuprimer.Click += new System.EventHandler(this.BtnAbsSuprimer_Click);
             // 
             // btnAbsModifier
             // 
@@ -279,31 +281,38 @@ namespace atelier2.view
             this.btnAbsModifier.TabIndex = 2;
             this.btnAbsModifier.Text = "modifier";
             this.btnAbsModifier.UseVisualStyleBackColor = true;
+            this.btnAbsModifier.Click += new System.EventHandler(this.BtnAbsModifier_Click);
             // 
             // dgvAbs
             // 
+            this.dgvAbs.AllowUserToAddRows = false;
+            this.dgvAbs.AllowUserToDeleteRows = false;
+            this.dgvAbs.AllowUserToResizeRows = false;
             this.dgvAbs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAbs.Location = new System.Drawing.Point(6, 19);
+            this.dgvAbs.MultiSelect = false;
             this.dgvAbs.Name = "dgvAbs";
+            this.dgvAbs.RowHeadersVisible = false;
+            this.dgvAbs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAbs.Size = new System.Drawing.Size(400, 248);
             this.dgvAbs.TabIndex = 0;
             // 
-            // groupBox2
+            // gbxAbs
             // 
-            this.groupBox2.Controls.Add(this.btnAbsAnnuler);
-            this.groupBox2.Controls.Add(this.btnAbsEnregistrer);
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.cbxMotif);
-            this.groupBox2.Location = new System.Drawing.Point(714, 419);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(412, 219);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "absence selectionné";
+            this.gbxAbs.Controls.Add(this.btnAbsAnnuler);
+            this.gbxAbs.Controls.Add(this.btnAbsEnregistrer);
+            this.gbxAbs.Controls.Add(this.dateTimePicker2);
+            this.gbxAbs.Controls.Add(this.dateTimePicker1);
+            this.gbxAbs.Controls.Add(this.label8);
+            this.gbxAbs.Controls.Add(this.label7);
+            this.gbxAbs.Controls.Add(this.label6);
+            this.gbxAbs.Controls.Add(this.cbxMotif);
+            this.gbxAbs.Location = new System.Drawing.Point(714, 419);
+            this.gbxAbs.Name = "gbxAbs";
+            this.gbxAbs.Size = new System.Drawing.Size(412, 219);
+            this.gbxAbs.TabIndex = 6;
+            this.gbxAbs.TabStop = false;
+            this.gbxAbs.Text = "ajouter une absence";
             // 
             // btnAbsAnnuler
             // 
@@ -313,6 +322,7 @@ namespace atelier2.view
             this.btnAbsAnnuler.TabIndex = 10;
             this.btnAbsAnnuler.Text = "annuler";
             this.btnAbsAnnuler.UseVisualStyleBackColor = true;
+            this.btnAbsAnnuler.Click += new System.EventHandler(this.BtnAbsAnnuler_Click);
             // 
             // btnAbsEnregistrer
             // 
@@ -322,6 +332,7 @@ namespace atelier2.view
             this.btnAbsEnregistrer.TabIndex = 9;
             this.btnAbsEnregistrer.Text = "enregistrer";
             this.btnAbsEnregistrer.UseVisualStyleBackColor = true;
+            this.btnAbsEnregistrer.Click += new System.EventHandler(this.BtnAbsEnregistrer_Click);
             // 
             // dateTimePicker2
             // 
@@ -367,6 +378,11 @@ namespace atelier2.view
             // cbxMotif
             // 
             this.cbxMotif.FormattingEnabled = true;
+            this.cbxMotif.Items.AddRange(new object[] {
+            "vacances",
+            "maladie",
+            "motif familial",
+            "congé parental"});
             this.cbxMotif.Location = new System.Drawing.Point(144, 124);
             this.cbxMotif.Name = "cbxMotif";
             this.cbxMotif.Size = new System.Drawing.Size(200, 21);
@@ -378,7 +394,7 @@ namespace atelier2.view
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1176, 686);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbxAbs);
             this.Controls.Add(this.gbxAbsences);
             this.Controls.Add(this.bntafficher);
             this.Controls.Add(this.gbxProSelect);
@@ -391,8 +407,8 @@ namespace atelier2.view
             this.gbxProSelect.PerformLayout();
             this.gbxAbsences.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbs)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbxAbs.ResumeLayout(false);
+            this.gbxAbs.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -420,7 +436,7 @@ namespace atelier2.view
         private System.Windows.Forms.Button btnAbsSuprimer;
         private System.Windows.Forms.Button btnAbsModifier;
         private System.Windows.Forms.DataGridView dgvAbs;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbxAbs;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
