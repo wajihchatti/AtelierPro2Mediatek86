@@ -141,5 +141,30 @@ namespace atelier2.dal
                 }
             }
         }
+
+        /// <summary>
+        /// Demande de suppression des absences d'une personnel
+        /// </summary>
+        /// <param name="personnel">le personnel dont on effasse les absences</param>
+        public void DelLesAbsences(Personnel personnel)
+        {
+            if (access.Manager != null)
+            {
+                string req = "delete from absence where idpersonnel = @idpersonnel ;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", personnel.Idpersonnel);
+                try
+                {
+                    access.Manager.ReqUpdate(req, parameters);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }   
     }
 }
+
+

@@ -120,5 +120,14 @@ namespace atelier2.controller
         {
             absenceAccess.DelAbsence(absence);
         }
+
+        /// <summary>
+        /// Suprime les absences d'un personne dans la base de données
+        /// </summary>
+        /// <param name="personnel">le personne dont les absences seronts suprimé</param>
+        public void DelLesAbsences(Personnel personnel)
+        {
+            absenceAccess.DelLesAbsences(personnel);
+        }
     }
 }

@@ -163,6 +163,12 @@
             </summary>
             <param name="absence">object absence a suprimer</param>
         </member>
+        <member name="M:atelier2.controller.FmrGestionController.DelLesAbsences(atelier2.model.Personnel)">
+            <summary>
+            Suprime les absences d'un personne dans la base de données
+            </summary>
+            <param name="personnel">le personne dont les absences seronts suprimé</param>
+        </member>
         <member name="T:atelier2.dal.AbsenceAccess">
             <summary>
             Classe permettant de gérer les demandes concernant les absences
@@ -202,6 +208,12 @@
             Demande de suppression d'un absence
             </summary>
             <param name="absence">objet absence à supprimer</param>
+        </member>
+        <member name="M:atelier2.dal.AbsenceAccess.DelLesAbsences(atelier2.model.Personnel)">
+            <summary>
+            Demande de suppression des absences d'une personnel
+            </summary>
+            <param name="personnel">le personnel dont on effasse les absences</param>
         </member>
         <member name="T:atelier2.dal.Access">
             <summary>

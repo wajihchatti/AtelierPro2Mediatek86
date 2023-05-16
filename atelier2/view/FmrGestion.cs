@@ -216,6 +216,7 @@ namespace atelier2.view
                 Personnel personnel = (Personnel)bdgPersonnel.List[bdgPersonnel.Position];
                 if (MessageBox.Show("Voulez-vous vraiment supprimer " + personnel.Nom + " " + personnel.Prenom + " ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    controller.DelLesAbsences(personnel);
                     controller.DelPersonnel(personnel);
                     RemplirListePersonnel();
                     if (dgvAbs.RowCount > 0)
