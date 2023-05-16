@@ -26,6 +26,10 @@ namespace atelier2.dal
             access = Access.GetInstance();
         }
 
+        /// <summary>
+        /// Récupère et retourne le personnel
+        /// </summary>
+        /// <returns>liste du personnel</returns>
         public List<Personnel> GetLesPersonnels()
         {
             List<Personnel> lesPersonnels = new List<Personnel>();
@@ -57,6 +61,10 @@ namespace atelier2.dal
             return lesPersonnels;
         }
 
+        /// <summary>
+        /// Demande d'ajout un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à ajouter</param>
         public void AddPersonnel(Personnel personnel)
         {
             if (access.Manager != null)
@@ -82,6 +90,10 @@ namespace atelier2.dal
             }
         }
 
+        /// <summary>
+        /// Demande de modification d'un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à modifier</param>
         public void UpdatePersonnel(Personnel personnel)
         {
             if (access.Manager != null)
@@ -107,6 +119,10 @@ namespace atelier2.dal
             }
         }
 
+        /// <summary>
+        /// Demande de suppression d'un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à supprimer</param>
         public void DelPersonnel(Personnel personnel)
         {
             if (access.Manager != null)

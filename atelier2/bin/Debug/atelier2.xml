@@ -94,8 +94,57 @@
         </member>
         <member name="M:atelier2.controller.FmrGestionController.#ctor">
             <summary>
-            
+            Récupère les acces aux données
             </summary>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.GetLesPersonnels">
+            <summary>
+            Récupère et retourne les infos du personnel
+            </summary>
+            <returns>liste du personnel</returns>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.GetLesAbsences(atelier2.model.Personnel)">
+            <summary>
+             Récupère et retourne les absences d'un personnel
+            </summary>
+            <param name="personnel">object personnel concerné</param>
+            <returns>liste d'absence d'un personnel</returns>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.AddPersonnel(atelier2.model.Personnel)">
+            <summary>
+            Ajoute un personnel a la base de données
+            </summary>
+            <param name="personnel">object personnel a ajouter</param>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.AddAbsence(atelier2.model.Absence)">
+            <summary>
+            Ajoute une absence a la base de donnes
+            </summary>
+            <param name="absence">object absence ajouté la base de donnes</param>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.UpdatePersonnel(atelier2.model.Personnel)">
+            <summary>
+            Modifie un personnel dans la base de données
+            </summary>
+            <param name="personnel">object personnel a modifier</param>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.UpdateAbsence(atelier2.model.Absence)">
+            <summary>
+            Modifie une absence dans la base de données
+            </summary>
+            <param name="absence">object absence a modifier</param>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.DelPersonnel(atelier2.model.Personnel)">
+            <summary>
+            Suprime un personnel dans la base de données
+            </summary>
+            <param name="personnel">object personnel a suprimer</param>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.DelAbsence(atelier2.model.Absence)">
+            <summary>
+            Suprime une absence dans la base de données
+            </summary>
+            <param name="absence">object absence a suprimer</param>
         </member>
         <member name="T:atelier2.dal.AbsenceAccess">
             <summary>
@@ -111,6 +160,31 @@
             <summary>
             Constructeur pour créer l'accès aux données
             </summary>
+        </member>
+        <member name="M:atelier2.dal.AbsenceAccess.GetLesAbsences(atelier2.model.Personnel)">
+            <summary>
+            Récupère et retourne les absences d'un personnel
+            </summary>
+            <param name="personnel">le personnel concerné par les absences</param>
+            <returns>liste d'absences</returns>
+        </member>
+        <member name="M:atelier2.dal.AbsenceAccess.AddAbsence(atelier2.model.Absence)">
+            <summary>
+            Demande d'ajout d'une absence
+            </summary>
+            <param name="absence">objet absence à ajouter</param>
+        </member>
+        <member name="M:atelier2.dal.AbsenceAccess.UpdateAbsence(atelier2.model.Absence)">
+            <summary>
+            Demande de modification d'uen absence
+            </summary>
+            <param name="absence">objet absence à modifier</param>
+        </member>
+        <member name="M:atelier2.dal.AbsenceAccess.DelAbsence(atelier2.model.Absence)">
+            <summary>
+            Demande de suppression d'un absence
+            </summary>
+            <param name="absence">objet absence à supprimer</param>
         </member>
         <member name="T:atelier2.dal.Access">
             <summary>
@@ -183,6 +257,30 @@
             Constructeur pour créer l'accès aux données
             </summary>
         </member>
+        <member name="M:atelier2.dal.PersonnelAccess.GetLesPersonnels">
+            <summary>
+            Récupère et retourne le personnel
+            </summary>
+            <returns>liste du personnel</returns>
+        </member>
+        <member name="M:atelier2.dal.PersonnelAccess.AddPersonnel(atelier2.model.Personnel)">
+            <summary>
+            Demande d'ajout un personnel
+            </summary>
+            <param name="personnel">objet personnel à ajouter</param>
+        </member>
+        <member name="M:atelier2.dal.PersonnelAccess.UpdatePersonnel(atelier2.model.Personnel)">
+            <summary>
+            Demande de modification d'un personnel
+            </summary>
+            <param name="personnel">objet personnel à modifier</param>
+        </member>
+        <member name="M:atelier2.dal.PersonnelAccess.DelPersonnel(atelier2.model.Personnel)">
+            <summary>
+            Demande de suppression d'un personnel
+            </summary>
+            <param name="personnel">objet personnel à supprimer</param>
+        </member>
         <member name="T:atelier2.model.Absence">
             <summary>
             Classe métier liée à la table Absence
@@ -213,7 +311,7 @@
             <summary>
             Définit l'information à afficher (juste le nom)
             </summary>
-            <returns></returns>
+            <returns>Libelle du motif</returns>
         </member>
         <member name="T:atelier2.model.Personnel">
             <summary>
@@ -247,7 +345,7 @@
             <summary>
             Définit l'information à afficher (juste le nom)
             </summary>
-            <returns></returns>
+            <returns>Nom du service</returns>
         </member>
         <member name="T:atelier2.FmrAuth">
             <summary>
@@ -299,10 +397,141 @@
             Fenêtre d'affichage du personnel et des absences
             </summary>
         </member>
+        <member name="F:atelier2.view.FmrGestion.enCoursDeModifPersonnel">
+            <summary>
+            Booléen pour savoir si une modification personnel est demandée
+            </summary>
+        </member>
+        <member name="F:atelier2.view.FmrGestion.enCoursDeModifAbsence">
+            <summary>
+            Booléen pour savoir si une modification d'absence est demandée
+            </summary>
+        </member>
+        <member name="F:atelier2.view.FmrGestion.personnelSelect">
+            <summary>
+            Personnel dont les absences sont affiché
+            </summary>
+        </member>
+        <member name="F:atelier2.view.FmrGestion.bdgPersonnel">
+            <summary>
+            Objet pour gérer la liste du personnel
+            </summary>
+        </member>
+        <member name="F:atelier2.view.FmrGestion.bdgAbsence">
+            <summary>
+            Objet pour gérer la liste des absences du personnel selectionné
+            </summary>
+        </member>
+        <member name="F:atelier2.view.FmrGestion.controller">
+            <summary>
+            Controleur de la fenêtre
+            </summary>
+        </member>
         <member name="M:atelier2.view.FmrGestion.#ctor">
             <summary>
             construction des composants graphiques et appel des autres initialisations
             </summary>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.Init">
+            <summary>
+            Initialisation:
+            Creation du controleur et remplissage des listes
+            </summary>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.RemplirListePersonnel">
+            <summary>
+            Affiche le personnel
+            </summary>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.RemplirListeAbsence(atelier2.model.Personnel)">
+            <summary>
+            Affiche les absences du personnel selectionné
+            </summary>
+            <param name="personnel"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.EnCourseDeModifPersonnel(System.Boolean)">
+            <summary>
+            Demande de modification d'un personnel
+            </summary>
+            <param name="modif"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.EnCourseDeModifAbsence(System.Boolean)">
+            <summary>
+            Demande de modification d'une absence
+            </summary>
+            <param name="modif"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnProModifier_Click_1(System.Object,System.EventArgs)">
+            <summary>
+            Demande de modification d'un personnel 
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnAbsModifier_Click(System.Object,System.EventArgs)">
+            <summary>
+            Demande de modification d'une absence
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnProSuprimer_Click(System.Object,System.EventArgs)">
+            <summary>
+            Demande de supression d'un personnel
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnAbsSuprimer_Click(System.Object,System.EventArgs)">
+            <summary>
+            Demande de supression d'une absence
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnProEnregistrer_Click(System.Object,System.EventArgs)">
+            <summary>
+            Demande d'enregistrement de l'ajout ou de la modification d'un personnel
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnAbsEnregistrer_Click(System.Object,System.EventArgs)">
+            <summary>
+            Demande d'enregistrement de l'ajout ou de la modification d'une absence
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnProAnnuler_Click(System.Object,System.EventArgs)">
+            <summary>
+            Annule la demande d'ajout ou de modification d'un personnel
+            Vide les zones de saisie du personnel
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.BtnAbsAnnuler_Click(System.Object,System.EventArgs)">
+            <summary>
+            Annule la demande d'ajout ou de modification d'une absence
+            Réinitialise les zones de saisie  
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.Bntafficher_Click(System.Object,System.EventArgs)">
+            <summary>
+            Deamande l'affichage des absences du personnel selectionné
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.VerifAbs(atelier2.model.Absence)">
+            <summary>
+            Verifie qu'une absence n'a pas deja été assigné le même jour
+            </summary>
+            <param name="absence"></param>
+            <returns></returns>
         </member>
         <member name="M:atelier2.view.FmrGestion.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
             <summary>

@@ -35,7 +35,6 @@ namespace atelier2.model
         public string Prenom { get; set; }
         public string Tel { get; set; }
         public string Mail { get; set; }
-        
         public Service Service { get; set; } 
-}
+    }
 }

@@ -1,9 +1,6 @@
 ﻿using System;
 using atelier2.model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace atelier2.dal
 {
@@ -24,6 +21,12 @@ namespace atelier2.dal
         {
             access = Access.GetInstance();
         }
+
+        /// <summary>
+        /// Récupère et retourne les absences d'un personnel
+        /// </summary>
+        /// <param name="personnel">le personnel concerné par les absences</param>
+        /// <returns>liste d'absences</returns>
         public List<Absence> GetLesAbsences(Personnel personnel)
         {
             List<Absence> lesAbsences = new List<Absence>();
@@ -59,6 +62,10 @@ namespace atelier2.dal
             return lesAbsences;
         }
 
+        /// <summary>
+        /// Demande d'ajout d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à ajouter</param>
         public void AddAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -69,8 +76,8 @@ namespace atelier2.dal
                 req += "values (@idpersonnel, @datedebut, @datefin, @idmotif);";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@idpersonnel", absence.Idpersonnel);
-                parameters.Add("@datedebut", absence.Datedebut.ToString("yyyy-MM-dd HH:mm"));
-                parameters.Add("@datefin", absence.Datefin.ToString("yyyy-MM-dd HH:mm"));
+                parameters.Add("@datedebut", absence.Datedebut.ToString("yyyy-MM-dd HH:mm:ss"));
+                parameters.Add("@datefin", absence.Datefin.ToString("yyyy-MM-dd HH:mm:ss"));
                 parameters.Add("@idmotif", absence.Motif.Idmotif);
                 try
                 {
@@ -84,6 +91,10 @@ namespace atelier2.dal
             }
         }
 
+        /// <summary>
+        /// Demande de modification d'uen absence
+        /// </summary>
+        /// <param name="absence">objet absence à modifier</param>
         public void UpdateAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -92,8 +103,8 @@ namespace atelier2.dal
                 req += "where idpersonnel = @idpersonnel and datedebut = @datedebut ;";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@idpersonnel", absence.Idpersonnel);
-                parameters.Add("@datedebut", absence.Datedebut.ToString("yyyy-MM-dd HH:mm"));
-                parameters.Add("@datefin", absence.Datefin.ToString("yyyy-MM-dd HH:mm"));
+                parameters.Add("@datedebut", absence.Datedebut.ToString("yyyy-MM-dd HH:mm:ss"));
+                parameters.Add("@datefin", absence.Datefin.ToString("yyyy-MM-dd HH:mm:ss"));
                 parameters.Add("@idmotif", absence.Motif.Idmotif);
                 try
                 {
@@ -107,6 +118,10 @@ namespace atelier2.dal
             }
         }
 
+        /// <summary>
+        /// Demande de suppression d'un absence
+        /// </summary>
+        /// <param name="absence">objet absence à supprimer</param>
         public void DelAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -126,7 +141,5 @@ namespace atelier2.dal
                 }
             }
         }
-
-
     }
 }

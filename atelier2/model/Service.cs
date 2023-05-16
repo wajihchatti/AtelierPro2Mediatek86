@@ -29,11 +29,10 @@ namespace atelier2.model
         /// <summary>
         /// Définit l'information à afficher (juste le nom)
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Nom du service</returns>
         public override string ToString()
         {
             return this.Nom;
         }
-
     }
 }

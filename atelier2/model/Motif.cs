@@ -28,7 +28,7 @@ namespace atelier2.model
         /// <summary>
         /// Définit l'information à afficher (juste le nom)
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Libelle du motif</returns>
         public override string ToString()
         {
             return this.Libelle;

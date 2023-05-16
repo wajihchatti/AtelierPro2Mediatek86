@@ -41,16 +41,10 @@ namespace atelier2
         private void BtnConnec_Click(object sender, EventArgs e)
         {
             if (controller.GetLaConnection(txtLogin.Text, txtPwd.Text))
-            {
                 this.Visible = false;
-                //this.Close();
-            }
             lblconnec.Text = "Mauvais mot de passe ou login utilisateur";
             txtLogin.Text = "patrick";
             txtPwd.Text = "pwdsio";
-            
-
         }
-
     }
 }
