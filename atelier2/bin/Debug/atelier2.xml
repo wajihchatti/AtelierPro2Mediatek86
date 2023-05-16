@@ -92,6 +92,11 @@
             objet d'accès aux opérations possibles sur Absence
             </summary>
         </member>
+        <member name="F:atelier2.controller.FmrGestionController.initAccess">
+            <summary>
+             objet d'accès aux opérations d'initialisation des comboBox
+            </summary>
+        </member>
         <member name="M:atelier2.controller.FmrGestionController.#ctor">
             <summary>
             Récupère les acces aux données
@@ -109,6 +114,18 @@
             </summary>
             <param name="personnel">object personnel concerné</param>
             <returns>liste d'absence d'un personnel</returns>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.GetLesServices">
+            <summary>
+            Récupère et retourne les différents services
+            </summary>
+            <returns>Liste des services</returns>
+        </member>
+        <member name="M:atelier2.controller.FmrGestionController.GetLesMotifs">
+            <summary>
+            Récupère et retourne les différents motifs
+            </summary>
+            <returns>Liste des motis</returns>
         </member>
         <member name="M:atelier2.controller.FmrGestionController.AddPersonnel(atelier2.model.Personnel)">
             <summary>
@@ -241,6 +258,28 @@
             <param name="login"></param>
             <param name="pwd"></param>
             <returns>vrai ou faux</returns>
+        </member>
+        <member name="F:atelier2.dal.InitAccess.access">
+            <summary>
+            Instance unique de l'accès aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.dal.InitAccess.#ctor">
+            <summary>
+            Constructeur pour créer l'accès aux données
+            </summary>
+        </member>
+        <member name="M:atelier2.dal.InitAccess.GetLesServices">
+            <summary>
+            Récupère et retourne les profils
+            </summary>
+            <returns>Liste des profils</returns>
+        </member>
+        <member name="M:atelier2.dal.InitAccess.GetLesMotifs">
+            <summary>
+            Récupère et retourne les motifs
+            </summary>
+            <returns>Liste des motifs</returns>
         </member>
         <member name="T:atelier2.dal.PersonnelAccess">
             <summary>
@@ -422,6 +461,16 @@
             Objet pour gérer la liste des absences du personnel selectionné
             </summary>
         </member>
+        <member name="F:atelier2.view.FmrGestion.bdgServices">
+            <summary>
+             Objet pour gérer la liste des services
+            </summary>
+        </member>
+        <member name="F:atelier2.view.FmrGestion.bdgMotifs">
+            <summary>
+             Objet pour gérer la liste des motifs
+            </summary>
+        </member>
         <member name="F:atelier2.view.FmrGestion.controller">
             <summary>
             Controleur de la fenêtre
@@ -448,6 +497,16 @@
             Affiche les absences du personnel selectionné
             </summary>
             <param name="personnel"></param>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.RemplirListeService">
+            <summary>
+            Affiche les services
+            </summary>
+        </member>
+        <member name="M:atelier2.view.FmrGestion.RemplirListeMotif">
+            <summary>
+            Affiche les motifs
+            </summary>
         </member>
         <member name="M:atelier2.view.FmrGestion.EnCourseDeModifPersonnel(System.Boolean)">
             <summary>

@@ -1,8 +1,6 @@
 ﻿using atelier2.dal;
 using atelier2.view;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace atelier2.controller
 {

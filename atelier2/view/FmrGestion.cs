@@ -2,7 +2,6 @@
 using atelier2.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace atelier2.view
@@ -33,6 +32,14 @@ namespace atelier2.view
         /// </summary>
         private BindingSource bdgAbsence = new BindingSource();
         /// <summary>
+        ///  Objet pour gérer la liste des services
+        /// </summary>
+        private BindingSource bdgServices = new BindingSource();
+        /// <summary>
+        ///  Objet pour gérer la liste des motifs
+        /// </summary>
+        private BindingSource bdgMotifs = new BindingSource();
+        /// <summary>
         /// Controleur de la fenêtre
         /// </summary>
         private FmrGestionController controller;
@@ -57,6 +64,8 @@ namespace atelier2.view
             gbxAbs.Enabled = false;
             EnCourseDeModifPersonnel(false);
             EnCourseDeModifAbsence(false);
+            RemplirListeService();
+            RemplirListeMotif();
         }
 
         /// <summary>
@@ -85,6 +94,26 @@ namespace atelier2.view
             gbxAbsences.Text = "absence de " + personnel.Nom + " " + personnel.Prenom;
             gbxAbs.Enabled = true;
 
+        }
+
+        /// <summary>
+        /// Affiche les services
+        /// </summary>
+        private void RemplirListeService()
+        {
+            List<Service> lesServices = controller.GetLesServices();
+            bdgServices.DataSource = lesServices;
+            cbxService.DataSource = bdgServices;
+        }
+
+        /// <summary>
+        /// Affiche les motifs
+        /// </summary>
+        private void RemplirListeMotif()
+        {
+            List<Motif> lesMotifs = controller.GetLesMotifs();
+            bdgMotifs.DataSource = lesMotifs;
+            cbxMotif.DataSource = bdgMotifs;
         }
 
         /// <summary>

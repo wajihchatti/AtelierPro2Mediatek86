@@ -204,10 +204,6 @@ namespace atelier2.view
             // cbxService
             // 
             this.cbxService.FormattingEnabled = true;
-            this.cbxService.Items.AddRange(new object[] {
-            "administatif",
-            "médiation culturelle",
-            "prêt"});
             this.cbxService.Location = new System.Drawing.Point(397, 147);
             this.cbxService.Name = "cbxService";
             this.cbxService.Size = new System.Drawing.Size(156, 21);
@@ -378,11 +374,6 @@ namespace atelier2.view
             // cbxMotif
             // 
             this.cbxMotif.FormattingEnabled = true;
-            this.cbxMotif.Items.AddRange(new object[] {
-            "vacances",
-            "maladie",
-            "motif familial",
-            "congé parental"});
             this.cbxMotif.Location = new System.Drawing.Point(144, 124);
             this.cbxMotif.Name = "cbxMotif";
             this.cbxMotif.Size = new System.Drawing.Size(200, 21);

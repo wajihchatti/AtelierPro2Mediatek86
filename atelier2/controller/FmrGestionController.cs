@@ -17,7 +17,10 @@ namespace atelier2.controller
         /// objet d'accès aux opérations possibles sur Absence
         /// </summary>
         private readonly AbsenceAccess absenceAccess;
-
+        /// <summary>
+        ///  objet d'accès aux opérations d'initialisation des comboBox
+        /// </summary>
+        private readonly InitAccess initAccess;
         /// <summary>
         /// Récupère les acces aux données
         /// </summary>
@@ -25,6 +28,7 @@ namespace atelier2.controller
         {
             personnelAccess = new PersonnelAccess();
             absenceAccess = new AbsenceAccess();
+            initAccess = new InitAccess();
         }
 
         /// <summary>
@@ -46,6 +50,23 @@ namespace atelier2.controller
             return absenceAccess.GetLesAbsences(personnel);
         }
 
+        /// <summary>
+        /// Récupère et retourne les différents services
+        /// </summary>
+        /// <returns>Liste des services</returns>
+        public List<Service> GetLesServices()
+        {
+            return initAccess.GetLesServices();
+        }
+
+        /// <summary>
+        /// Récupère et retourne les différents motifs
+        /// </summary>
+        /// <returns>Liste des motis</returns>
+        public List<Motif> GetLesMotifs()
+        {
+            return initAccess.GetLesMotifs();
+        }
         /// <summary>
         /// Ajoute un personnel a la base de données
         /// </summary>

@@ -111,6 +111,7 @@
     <Compile Include="dal\AbsenceAccess.cs" />
     <Compile Include="dal\Access.cs" />
     <Compile Include="dal\ConnectionAccess.cs" />
+    <Compile Include="dal\InitAccess.cs" />
     <Compile Include="dal\PersonnelAccess.cs" />
     <Compile Include="model\Absence.cs" />
     <Compile Include="model\Motif.cs" />
