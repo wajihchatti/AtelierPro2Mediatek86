@@ -66,7 +66,6 @@ namespace atelier2.dal
         {
             if (access.Manager != null)
             {
-                Console.WriteLine("addpersonnel");
                 string req = "insert into personnel(nom, prenom, tel, mail, idservice) ";
                 req += "values (@nom, @prenom, @tel, @mail, @idService);";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();

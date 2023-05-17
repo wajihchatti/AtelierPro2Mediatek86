@@ -68,7 +68,6 @@ namespace atelier2.dal
         {
             if (access.Manager != null)
             {
-                Console.WriteLine("AddAbsence");
 
                 string req = "insert into absence(idpersonnel, datedebut, datefin, idmotif) ";
                 req += "values (@idpersonnel, @datedebut, @datefin, @idmotif);";

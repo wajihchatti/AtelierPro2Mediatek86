@@ -391,7 +391,6 @@ namespace atelier2.view
                 compt--;
             foreach (Absence absenceAVerifier in bdgAbsence.List)
             {
-                Console.WriteLine(absenceAVerifier.Datedebut.ToString());
                 if (absence.Datedebut.ToString("yyyy-MM-dd") == absenceAVerifier.Datedebut.ToString("yyyy-MM-dd"))
                 {
                     compt++;
