@@ -11,7 +11,7 @@ namespace atelier2.dal
         /// <summary>
         /// chaine de connexion à la bdd
         /// </summary>
-        private static readonly string connectionString = "server=127.0.0.1;user id = root; database=ap2";
+        private static readonly string connectionString = "server=127.0.0.1;user id = root; database=atelier2";
         /// <summary>
         /// instance unique de la classe
         /// </summary>

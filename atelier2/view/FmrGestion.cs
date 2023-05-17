@@ -93,6 +93,8 @@ namespace atelier2.view
             dgvAbs.Columns["idpersonnel"].Visible = false;
             dgvAbs.Columns["datedebut"].DefaultCellStyle.Format = "d/M/yyyy";
             dgvAbs.Columns["datefin"].DefaultCellStyle.Format = "d/M/yyyy";
+            dgvAbs.Columns["datedebut"].HeaderText = "Date de debut";
+            dgvAbs.Columns["datefin"].HeaderText = "Date de fin";
             dgvAbs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvAbs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gbxAbsences.Text = "absence de " + personnel.Nom + " " + personnel.Prenom;
