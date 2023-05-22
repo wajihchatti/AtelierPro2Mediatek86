@@ -270,7 +270,7 @@ namespace atelier2.view
         private void BtnProEnregistrer_Click(object sender, EventArgs e)
         {
             if (!txtProNom.Text.Equals("") && !txtProPrenom.Text.Equals("") 
-                && !txtProMail.Text.Equals("") && !txtProTel.Text.Equals("") && cbxService.SelectedIndex > - 1 && cbxService.SelectedIndex < 3)
+                && !txtProMail.Text.Equals("") && !txtProTel.Text.Equals("") && cbxService.SelectedIndex > - 1 && cbxService.SelectedIndex < cbxService.Items.Count)
             {
                 Service service = new Service(cbxService.SelectedIndex + 1, cbxService.SelectedItem.ToString());
                 if (enCoursDeModifPersonnel)
@@ -303,7 +303,7 @@ namespace atelier2.view
         /// <param name="e"></param>
         private void BtnAbsEnregistrer_Click(object sender, EventArgs e)
         {
-            if ( dateTimePicker1.Value <= dateTimePicker2.Value && cbxMotif.SelectedIndex > -1 && cbxMotif.SelectedIndex < 4)
+            if ( dateTimePicker1.Value <= dateTimePicker2.Value && cbxMotif.SelectedIndex > -1 && cbxMotif.SelectedIndex < cbxMotif.Items.Count)
             {
                 Motif motif = new Motif(cbxMotif.SelectedIndex + 1, cbxMotif.SelectedItem.ToString());
                 if(enCoursDeModifAbsence)

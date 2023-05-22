@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 14 mai 2023 à 15:23
+-- Généré le : mer. 10 mai 2023 à 16:20
 -- Version du serveur : 5.7.41
 -- Version de PHP : 8.0.26
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `ap2`
 --
-CREATE DATABASE IF NOT EXISTS `ap2` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `ap2`;
 
 -- --------------------------------------------------------
 
@@ -188,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `responsable` (
 --
 
 INSERT INTO `responsable` (`login`, `pwd`) VALUES
-('patrick', '6d572805340520a111a1edc2f24b9cdf27bc17cffb2cfdca0a8e3e3d9ff585ac');
+('patrick', 'a000b75649d262a17274a4bd9775b5d63c14735aa8dcf79c33658fc11fcc1c64');
 
 -- --------------------------------------------------------
 
@@ -211,4 +209,8 @@ INSERT INTO `service` (`idservice`, `nom`) VALUES
 (1, 'administratif'),
 (2, 'médiation culturelle'),
 (3, 'prêt');
---
+COMMIT;
+
+CREATE USER 'patrick'@'localhost' IDENTIFIED BY 'motdepasseuser';
+GRANT USAGE ON *.* TO 'patrick'@'localhost';
+GRANT ALL PRIVILEGES ON `atelier2`.* TO 'patrick'@'localhost';
