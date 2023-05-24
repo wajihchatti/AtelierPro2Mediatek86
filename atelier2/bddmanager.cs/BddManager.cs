@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-
+using System.Windows.Forms;
 
 namespace atelier2.bddmanager
 {
@@ -38,7 +38,16 @@ namespace atelier2.bddmanager
         {
             if (instance == null)
             {
-                instance = new BddManager(stringConnect);
+                try
+                {
+                    instance = new BddManager(stringConnect);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message + "!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(0);
+
+                }
             }
             return instance;
         }

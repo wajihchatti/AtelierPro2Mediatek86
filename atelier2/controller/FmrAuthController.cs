@@ -1,6 +1,7 @@
 ﻿using atelier2.dal;
 using atelier2.view;
 using System;
+using System.Windows.Forms;
 
 namespace atelier2.controller
 {
@@ -39,12 +40,16 @@ namespace atelier2.controller
         {
             if (connectionAccess.GetLaConnection(login, psw)) 
             {
-                gestion = new FmrGestion();
-                gestion.Show();
-
+                initGestion();
                 return true;
             }
             return false;
+        }
+
+        private void initGestion()
+        {
+            gestion = new FmrGestion();
+            gestion.Show();
         }
     }
 }
