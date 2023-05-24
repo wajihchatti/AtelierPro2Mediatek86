@@ -1,5 +1,6 @@
 ﻿using atelier2.bddmanager;
 using System;
+using System.Windows.Forms;
 
 namespace atelier2.dal
 {
@@ -31,8 +32,9 @@ namespace atelier2.dal
             {
                 Manager = BddManager.GetInstance(connectionString);
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message + "!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
         }

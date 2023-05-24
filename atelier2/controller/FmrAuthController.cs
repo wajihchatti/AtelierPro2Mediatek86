@@ -1,7 +1,5 @@
 ﻿using atelier2.dal;
 using atelier2.view;
-using System;
-using System.Windows.Forms;
 
 namespace atelier2.controller
 {

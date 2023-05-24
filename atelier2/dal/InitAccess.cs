@@ -1,6 +1,7 @@
 ﻿using System;
 using atelier2.model;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace atelier2.dal
 {
@@ -46,7 +47,7 @@ namespace atelier2.dal
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    MessageBox.Show(e.Message + "!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(0);
                 }
             }
@@ -77,7 +78,7 @@ namespace atelier2.dal
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    MessageBox.Show(e.Message + "!", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Environment.Exit(0);
                 }
             }
