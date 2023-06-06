@@ -12,7 +12,7 @@ namespace atelier2.dal
         /// <summary>
         /// chaine de connexion à la bdd
         /// </summary>
-        private static readonly string connectionString = "server = 127.0.0.1; user id = patrick ; Pwd = motdepasseuser ;  persistsecurityinfo=False;database=atelier2";
+        private static readonly string connectionString = "server=localhost;user id=root;database=mediatek86";
         /// <summary>
         /// instance unique de la classe
         /// </summary>
